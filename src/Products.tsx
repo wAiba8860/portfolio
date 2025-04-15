@@ -208,7 +208,7 @@ function BannerContents(): React.ReactElement {
 const ProductsWrapper = styled.div`
     text-align: center;
     width: 100vw;
-    background-image: url("./images/productsBack.jpg");
+    background-image: url("./images/ProductsBack.jpg");
     background-position: bottom;
     background-size: cover;
     background-color: rgb(17, 26, 102, 0.8);
