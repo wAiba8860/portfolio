@@ -41,6 +41,9 @@ export function KeyView(): React.ReactElement {
     return (
         <>
             <KeyViewContainer>
+                <ImageDiv>
+                    <img src="./images/icons8-github-50.png" />
+                </ImageDiv>
                 <ButtonWrapper>
                     <KeyViewButton
                         ref={(ref) => {
@@ -83,6 +86,11 @@ const KeyViewButton = styled.button`
     color: #fff;
     font-size: 4rem;
     letter-spacing: 0.2rem;
+`;
+const ImageDiv = styled.div`
+    position: absolute;
+    top: 10px;
+    left: 10px;
 `;
 const ButtonWrapper = styled.div`
     position: absolute;

@@ -202,7 +202,35 @@ export function Products(): React.ReactElement {
 }
 
 function BannerContents(): React.ReactElement {
-    return <ProductsH1Style>制作バナー一覧</ProductsH1Style>;
+    return (
+        <>
+            <ProductsH1Style>制作バナー一覧</ProductsH1Style>
+            <FlexTwoColumns>
+                <BannerWrapper>
+                    <img src="./images/banner1.png" alt="bannerOne" />
+                    <h3>量販店向け</h3>
+                    <h3>バレンタインセール告知用バナー</h3>
+                </BannerWrapper>
+                <BannerWrapper>
+                    <img src="./images/banner2.jpg" alt="bannerTwo" />
+                    <h3>中高年代をターゲットにした</h3>
+                    <h3>ペットショップバナー</h3>
+                </BannerWrapper>
+            </FlexTwoColumns>
+            <FlexTwoColumns>
+                <BannerWrapper>
+                    <img src="./images/banner3.png" alt="bannerThree" />
+                    <h3>シューズ専門店向け</h3>
+                    <h3>ランニングシューズ販売促進バナー</h3>
+                </BannerWrapper>
+                <BannerWrapper>
+                    <img src="./images/banner4.png" alt="bannerFour" />
+                    <h3>ネットショップ向け</h3>
+                    <h3>長財布販売促進バナー</h3>
+                </BannerWrapper>
+            </FlexTwoColumns>
+        </>
+    );
 }
 
 const ProductsWrapper = styled.div`
@@ -219,7 +247,7 @@ const ProductsCover = styled.div`
     background-color: rgb(17, 26, 102, 0.3);
 `;
 const ProductContent = styled.div`
-    width: 70%;
+    width: 80%;
     margin: 0 auto;
     padding-bottom: 2rem;
 `;
@@ -262,4 +290,13 @@ const ProgrammingText = styled.div`
 const ProgrammingLanguage = styled.p`
     font-weight: bold;
     font-size: 1.2rem;
+`;
+const BannerWrapper = styled.div`
+    margin-bottom: 2rem;
+`;
+const FlexTwoColumns = styled.div`
+    display: flex;
+    justify-content: center;
+    vertical-align: top;
+    gap: 2rem;
 `;

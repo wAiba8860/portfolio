@@ -71,7 +71,7 @@ function AboutMyself(): React.ReactElement {
     const aboutMeText3 =
         "1ヶ月が過ぎてからは自主的にサイト制作の勉強を開始".split("");
     const aboutMeText4 =
-        "HTML + Cssで静的サイトをコーディングするところから始め".split("");
+        "HTML + CSSで静的サイトをコーディングするところから始め".split("");
     const aboutMeText5 = "WordPressオリジナルテーマを作成".split("");
     const aboutMeText6 =
         "購入した技術書でJavascriptを用いてWebサイトを動かす楽しさを覚え".split(
