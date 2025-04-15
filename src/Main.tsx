@@ -156,7 +156,7 @@ function AboutMyself(): React.ReactElement {
     );
 }
 
-function Contact() {
+export function Contact() {
     return (
         <>
             <ContactStyle>

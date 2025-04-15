@@ -97,6 +97,18 @@ export function Products(): React.ReactElement {
                                         Webサイトへ
                                     </LinkStyle>
                                 </>
+                                <div>
+                                    <OverViewTextH3>
+                                        Webサイト概要
+                                    </OverViewTextH3>
+                                    <OverViewTextP>
+                                        住宅会社や工務店向けの、住宅動画作成会社様のLPサイト
+                                    </OverViewTextP>
+                                    <OverViewTextP>
+                                        Instagramからのリンクからアクセスして来られるお客様を想定しているため、
+                                        スマホファースト仕様
+                                    </OverViewTextP>
+                                </div>
                                 <ProgrammingText>
                                     <ProgrammingLanguage>
                                         使用言語
@@ -138,6 +150,18 @@ export function Products(): React.ReactElement {
                                         Webサイトへ
                                     </LinkStyle>
                                 </>
+                                <div>
+                                    <OverViewTextH3>
+                                        Webサイト概要
+                                    </OverViewTextH3>
+                                    <OverViewTextP>
+                                        既存のパン屋のリニューアル案としてのWebサイト
+                                    </OverViewTextP>
+                                    <OverViewTextP>
+                                        どうすればWebページの下部までブラウザバッグせずにスクロールしてもらえるか
+                                        流れを意識
+                                    </OverViewTextP>
+                                </div>
                                 <ProgrammingText>
                                     <ProgrammingLanguage>
                                         使用言語
@@ -180,6 +204,18 @@ export function Products(): React.ReactElement {
                                         Webサイトへ
                                     </LinkStyle>
                                 </>
+                                <div>
+                                    <OverViewTextH3>
+                                        Webサイト概要
+                                    </OverViewTextH3>
+                                    <OverViewTextP>
+                                        アルバムデジタル化サービスを手がけるサイト様のトレースWebサイト
+                                    </OverViewTextP>
+                                    <OverViewTextP>
+                                        初めてのWebサイト制作だったため動きがかなり少ないが
+                                        空白の取り方等、勉強になったWebサイト
+                                    </OverViewTextP>
+                                </div>
                                 <ProgrammingText>
                                     <ProgrammingLanguage>
                                         使用言語
@@ -216,17 +252,35 @@ function BannerContents(): React.ReactElement {
                     <h3>中高年代をターゲットにした</h3>
                     <h3>ペットショップバナー</h3>
                 </BannerWrapper>
-            </FlexTwoColumns>
-            <FlexTwoColumns>
                 <BannerWrapper>
                     <img src="./images/banner3.png" alt="bannerThree" />
                     <h3>シューズ専門店向け</h3>
                     <h3>ランニングシューズ販売促進バナー</h3>
                 </BannerWrapper>
+            </FlexTwoColumns>
+            <FlexTwoColumns>
                 <BannerWrapper>
                     <img src="./images/banner4.png" alt="bannerFour" />
                     <h3>ネットショップ向け</h3>
                     <h3>長財布販売促進バナー</h3>
+                </BannerWrapper>
+                <BannerWrapper>
+                    <img
+                        style={{ width: "360px", height: "300px" }}
+                        src="./images/banner5.png"
+                        alt="bannerFive"
+                    />
+                    <h3>新潟県リスキリング事業</h3>
+                    <h3>事業者様向けセミナーバナー</h3>
+                </BannerWrapper>
+                <BannerWrapper>
+                    <img
+                        style={{ width: "360px", height: "300px" }}
+                        src="./images/banner6.png"
+                        alt="bannerSix"
+                    />
+                    <h3>新潟県リスキリング事業</h3>
+                    <h3>受講資格がある方全般向けバナー</h3>
                 </BannerWrapper>
             </FlexTwoColumns>
         </>
@@ -258,6 +312,12 @@ const ProductsH1Style = styled.h1`
 const ProductsTextWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+`;
+const OverViewTextH3 = styled.h3`
+    margin: 1rem 0;
+`;
+const OverViewTextP = styled.p`
+    text-align: left;
 `;
 const LiStyle = styled.li`
     text-align: left;
