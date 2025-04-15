@@ -113,26 +113,26 @@ function LoadingAnimate(): React.ReactElement {
     const fadeLight = useRef<(HTMLDivElement | null)[]>([]);
 
     useGSAP(() => {
-        loadingTextFadeIn(LoadingSpanRef1, 0.5);
+        loadingTextFadeIn(LoadingSpanRef1, 0.6);
         gsap.to(fadeLight.current[0], {
-            x: "450%",
+            x: "650%",
             delay: 0.58,
-            duration: 1.7,
+            duration: 1.5,
             ease: "power1.out",
         });
 
         loadingTextFadeIn(LoadingSpanRef2, delayTime1);
         gsap.to(fadeLight.current[1], {
-            x: "450%",
+            x: "650%",
             delay: delayTime1 + 0.15,
-            duration: 1.7,
+            duration: 1.5,
             ease: "power1.out",
         });
         loadingTextFadeIn(LoadingSpanRef3, delayTime2);
         gsap.to(fadeLight.current[2], {
-            x: "450%",
+            x: "650%",
             delay: delayTime2 + 0.05,
-            duration: 1.7,
+            duration: 1.5,
             ease: "power1.out",
         });
     }, []);
@@ -446,8 +446,8 @@ const FadeLight = styled.div`
         top: 50%;
         transform:translateY(-50%);
         left: -30%;
-        width: 30%;
-        height: 50%;
+        width: 20%;
+        height: 30%;
         border-radius:50%;
         background-image: linear-gradient(
             rgba(255, 255, 255, 0) 0%,
