@@ -103,13 +103,13 @@ function AboutMyself(): React.ReactElement {
             },
         });
         tl.add(fadeInTextSplit(aboutMeText1Ref));
-        tl.add(fadeInTextSplit(aboutMeText2Ref), "-=0.6");
-        tl.add(fadeInTextSplit(aboutMeText3Ref), "-=0.6");
-        tl.add(fadeInTextSplit(aboutMeText4Ref), "-=0.6");
-        tl.add(fadeInTextSplit(aboutMeText5Ref), "-=0.4");
-        tl.add(fadeInTextSplit(aboutMeText6Ref), "-=0.8");
-        tl.add(fadeInTextSplit(aboutMeText7Ref), "-=0.6");
-        tl.add(fadeInTextSplit(aboutMeText8Ref), "-=0.7");
+        tl.add(fadeInTextSplit(aboutMeText2Ref), "-=0.7");
+        tl.add(fadeInTextSplit(aboutMeText3Ref), "-=0.7");
+        tl.add(fadeInTextSplit(aboutMeText4Ref), "-=0.7");
+        tl.add(fadeInTextSplit(aboutMeText5Ref), "-=0.5");
+        tl.add(fadeInTextSplit(aboutMeText6Ref), "-=0.9");
+        tl.add(fadeInTextSplit(aboutMeText7Ref), "-=0.7");
+        tl.add(fadeInTextSplit(aboutMeText8Ref), "-=0.8");
     }, []);
 
     return (
@@ -166,11 +166,19 @@ export function Contact() {
                         <ContactFlex>
                             <div>
                                 <InputPStyle>姓</InputPStyle>
-                                <InputStyle type="text" name="lastName" />
+                                <InputStyle
+                                    type="text"
+                                    name="lastName"
+                                    placeholder="例：相場"
+                                />
                             </div>
                             <div>
                                 <InputPStyle>名</InputPStyle>
-                                <InputStyle type="text" name="firstName" />
+                                <InputStyle
+                                    type="text"
+                                    name="firstName"
+                                    placeholder="例：太郎"
+                                />
                             </div>
                         </ContactFlex>
                         <ContactFlex>
@@ -179,6 +187,7 @@ export function Contact() {
                                 <InputStyle
                                     type="text"
                                     name="lastNameFurigana"
+                                    placeholder="例：あいば"
                                 />
                             </div>
                             <div>
@@ -186,13 +195,22 @@ export function Contact() {
                                 <InputStyle
                                     type="text"
                                     name="firstNameFurigana"
+                                    placeholder="例：たろう"
                                 />
                             </div>
                         </ContactFlex>
-                        <InputPStyle>電話番号</InputPStyle>
-                        <InputStyle type="number" name="telephoneNumber" />
+                        <InputPStyle>電話番号（※任意）</InputPStyle>
+                        <InputStyle
+                            type="number"
+                            name="telephoneNumber"
+                            placeholder="例：090-XXXX-XXXX"
+                        />
                         <InputPStyle>Eメール</InputPStyle>
-                        <InputStyle type="email" name="email" />
+                        <InputStyle
+                            type="email"
+                            name="email"
+                            placeholder="例：XXXXXXX@gmail.xxx"
+                        />
                         <InputPStyle>お問い合わせ内容</InputPStyle>
                         <TextareaStyle></TextareaStyle>
                         <div style={{ textAlign: "left", marginTop: "3rem" }}>

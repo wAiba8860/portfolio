@@ -4,6 +4,7 @@ import React, {
     Fragment,
     CSSProperties,
     RefObject,
+    MouseEvent,
 } from "react";
 import { flushSync } from "react-dom";
 import styled from "styled-components";
@@ -379,7 +380,7 @@ function FixedBox() {
     }
 
     return (
-        <mesh onClick={handleBoxColor} ref={meshRef} position={[0, -450, 0]}>
+        <mesh onClick={handleBoxColor} ref={meshRef} position={[0, 0, 0]}>
             <boxGeometry args={boxSize} />
             <meshPhongMaterial
                 color={color}
@@ -393,11 +394,12 @@ function FixedBox() {
 
 function FixedBoxScene() {
     const canvasRef = useRef<HTMLCanvasElement | null>(null);
+    const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
     useGSAP(() => {
-        if (canvasRef.current) {
-            gsap.to(canvasRef.current, {
-                y: "-80%",
+        if (scrollContainerRef.current) {
+            gsap.to(scrollContainerRef.current, {
+                y: "-85vh",
                 ease: "none",
                 scrollTrigger: {
                     trigger: "body",
@@ -411,30 +413,41 @@ function FixedBoxScene() {
 
     function CameraSetup() {
         const { camera } = useThree();
-        camera.position.set(0, 0, 700);
+        camera.position.set(0, 0, 120);
         return null;
     }
 
     const canvasStyle: CSSProperties = {
         width: "100px",
-        height: "100vh",
+        height: "100px",
         position: "fixed",
         zIndex: 9,
+        bottom: 0,
+        cursor: "pointer",
+    };
+
+    const scrollContainerRefStyle: CSSProperties = {
+        width: "100px",
+        height: "100px",
+        position: "fixed",
+        zIndex: 8,
         bottom: 0,
         right: "-20px",
     };
 
     return (
-        <Canvas style={canvasStyle} ref={canvasRef}>
-            <ambientLight />
-            <directionalLight
-                color={0xffffff}
-                intensity={5}
-                position={[10, 5, 10]}
-            />
-            <CameraSetup />
-            <FixedBox />
-        </Canvas>
+        <div ref={scrollContainerRef} style={scrollContainerRefStyle}>
+            <Canvas style={canvasStyle} ref={canvasRef}>
+                <ambientLight />
+                <directionalLight
+                    color={0xffffff}
+                    intensity={5}
+                    position={[10, 5, 10]}
+                />
+                <CameraSetup />
+                <FixedBox />
+            </Canvas>
+        </div>
     );
 }
 

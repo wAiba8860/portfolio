@@ -84,6 +84,18 @@ export function Products(): React.ReactElement {
                                     <br />
                                     Webサイト(3作品目)
                                 </h2>
+                                <div style={{ height: "150px" }}>
+                                    <OverViewTextH3>
+                                        【制作期間】
+                                    </OverViewTextH3>
+                                    <OverViewTextP>
+                                        コーディング：5日
+                                    </OverViewTextP>
+                                    <OverViewTextP>
+                                        ワイヤーフレーム等の構想：1日
+                                        （事前にデザイン会社様より構想の例を与えられていたため）
+                                    </OverViewTextP>
+                                </div>
                                 <>
                                     <LinkImgTag
                                         src="./images/short_house_movie.jpg"
@@ -99,7 +111,7 @@ export function Products(): React.ReactElement {
                                 </>
                                 <div>
                                     <OverViewTextH3>
-                                        Webサイト概要
+                                        【Webサイト概要】
                                     </OverViewTextH3>
                                     <OverViewTextP>
                                         住宅会社や工務店向けの、住宅動画作成会社様のLPサイト
@@ -109,6 +121,7 @@ export function Products(): React.ReactElement {
                                         スマホファースト仕様
                                     </OverViewTextP>
                                 </div>
+
                                 <ProgrammingText>
                                     <ProgrammingLanguage>
                                         使用言語
@@ -137,6 +150,19 @@ export function Products(): React.ReactElement {
                                     <br />
                                     Webサイト(2作品目)
                                 </h2>
+                                <div style={{ height: "150px" }}>
+                                    <OverViewTextH3>
+                                        【制作期間】
+                                    </OverViewTextH3>
+                                    <OverViewTextP>
+                                        コーディング：6日
+                                    </OverViewTextP>
+                                    <OverViewTextP>
+                                        ワイヤーフレーム等の構想：1日
+                                        <br />
+                                        バナー、キャラクター作成：2日
+                                    </OverViewTextP>
+                                </div>
                                 <>
                                     <LinkImgTag
                                         src="./images/bread-shop.jpg"
@@ -191,6 +217,19 @@ export function Products(): React.ReactElement {
                                     <br />
                                     Webサイト(1作品目)
                                 </h2>
+                                <div style={{ height: "150px" }}>
+                                    <OverViewTextH3>
+                                        【制作期間】
+                                    </OverViewTextH3>
+                                    <OverViewTextP>
+                                        コーディング：10日
+                                    </OverViewTextP>
+                                    <OverViewTextP>
+                                        ワイヤーフレーム等の構想：トレースのためほぼ無し
+                                        <br />
+                                        素材作成：1日
+                                    </OverViewTextP>
+                                </div>
                                 <>
                                     <LinkImgTag
                                         src="./images/album-design.jpg"
@@ -238,55 +277,109 @@ export function Products(): React.ReactElement {
 }
 
 function BannerContents(): React.ReactElement {
+    const bannerTitleRef = useRef<(HTMLElement | null)[]>([]);
+    const bannerWrapRef = useRef<HTMLDivElement | null>(null);
+
+    useGSAP(() => {
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: bannerTitleRef.current[0],
+                start: "top 90%",
+            },
+        });
+        tl.fromTo(
+            bannerTitleRef.current[0],
+            {
+                opacity: 0,
+                y: "5rem",
+            },
+            {
+                opacity: 1,
+                y: 0,
+                duration: 1.0,
+                ease: "power4.out",
+            }
+        );
+        tl.fromTo(
+            bannerWrapRef.current,
+            {
+                opacity: 0,
+            },
+            {
+                opacity: 1,
+                duration: 1.0,
+                ease: "power4.out",
+            },
+            "-=0.3"
+        );
+    }, []);
+
     return (
-        <>
-            <ProductsH1Style>制作バナー一覧</ProductsH1Style>
-            <FlexTwoColumns>
-                <BannerWrapper>
-                    <img src="./images/banner1.png" alt="bannerOne" />
-                    <h3>量販店向け</h3>
-                    <h3>バレンタインセール告知用バナー</h3>
-                </BannerWrapper>
-                <BannerWrapper>
-                    <img src="./images/banner2.jpg" alt="bannerTwo" />
-                    <h3>中高年代をターゲットにした</h3>
-                    <h3>ペットショップバナー</h3>
-                </BannerWrapper>
-                <BannerWrapper>
-                    <img src="./images/banner3.png" alt="bannerThree" />
-                    <h3>シューズ専門店向け</h3>
-                    <h3>ランニングシューズ販売促進バナー</h3>
-                </BannerWrapper>
-            </FlexTwoColumns>
-            <FlexTwoColumns>
-                <BannerWrapper>
-                    <img src="./images/banner4.png" alt="bannerFour" />
-                    <h3>ネットショップ向け</h3>
-                    <h3>長財布販売促進バナー</h3>
-                </BannerWrapper>
-                <BannerWrapper>
-                    <img
-                        style={{ width: "360px", height: "300px" }}
-                        src="./images/banner5.png"
-                        alt="bannerFive"
-                    />
-                    <h3>新潟県リスキリング事業</h3>
-                    <h3>事業者様向けセミナーバナー</h3>
-                </BannerWrapper>
-                <BannerWrapper>
-                    <img
-                        style={{ width: "360px", height: "300px" }}
-                        src="./images/banner6.png"
-                        alt="bannerSix"
-                    />
-                    <h3>新潟県リスキリング事業</h3>
-                    <h3>受講資格がある方全般向けバナー</h3>
-                </BannerWrapper>
-            </FlexTwoColumns>
-        </>
+        <BannerContainer>
+            <ProductsH1Style
+                ref={(ref) => {
+                    bannerTitleRef.current[0] = ref;
+                }}
+            >
+                制作バナー一覧
+            </ProductsH1Style>
+            <div ref={bannerWrapRef}>
+                <FlexTwoColumns>
+                    <BannerWrapper>
+                        <BannerImg src="./images/banner1.png" alt="bannerOne" />
+                        <h3>量販店向け</h3>
+                        <h3>バレンタインセール告知用バナー</h3>
+                    </BannerWrapper>
+                    <BannerWrapper>
+                        <BannerImg src="./images/banner2.jpg" alt="bannerTwo" />
+                        <h3>中高年代をターゲットにした</h3>
+                        <h3>ペットショップバナー</h3>
+                    </BannerWrapper>
+                    <BannerWrapper>
+                        <BannerImg
+                            src="./images/banner3.png"
+                            alt="bannerThree"
+                        />
+                        <h3>シューズ専門店向け</h3>
+                        <h3>ランニングシューズ販売促進バナー</h3>
+                    </BannerWrapper>
+                </FlexTwoColumns>
+                <FlexTwoColumns>
+                    <BannerWrapper>
+                        <BannerImg
+                            src="./images/banner4.png"
+                            alt="bannerFour"
+                        />
+                        <h3>ネットショップ向け</h3>
+                        <h3>長財布販売促進バナー</h3>
+                    </BannerWrapper>
+                    <BannerWrapper>
+                        <BannerImg
+                            style={{ maxWidth: "360px" }}
+                            src="./images/banner5.png"
+                            alt="bannerFive"
+                        />
+                        <h3>新潟県リスキリング事業</h3>
+                        <h3>事業者様向けセミナーバナー</h3>
+                    </BannerWrapper>
+                    <BannerWrapper>
+                        <BannerImg
+                            style={{ maxWidth: "360px" }}
+                            src="./images/banner6.png"
+                            alt="bannerSix"
+                        />
+                        <h3>新潟県リスキリング事業</h3>
+                        <h3>受講資格がある方全般向けバナー</h3>
+                    </BannerWrapper>
+                </FlexTwoColumns>
+            </div>
+        </BannerContainer>
     );
 }
 
+const BannerContainer = styled.div`
+    padding: 2rem;
+`;
 const ProductsWrapper = styled.div`
     text-align: center;
     width: 100vw;
@@ -353,6 +446,9 @@ const ProgrammingLanguage = styled.p`
 `;
 const BannerWrapper = styled.div`
     margin-bottom: 2rem;
+`;
+const BannerImg = styled.img`
+    width: 100%;
 `;
 const FlexTwoColumns = styled.div`
     display: flex;
