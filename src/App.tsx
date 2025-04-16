@@ -1,4 +1,10 @@
-import React, { useState, useRef, Fragment, CSSProperties } from "react";
+import React, {
+    useState,
+    useRef,
+    Fragment,
+    CSSProperties,
+    RefObject,
+} from "react";
 import { flushSync } from "react-dom";
 import styled from "styled-components";
 import { gsap } from "gsap";
@@ -23,6 +29,16 @@ export default function App(): React.ReactElement {
     const ProductsRef = useRef<HTMLDivElement | null>(null);
     const contactRef = useRef<HTMLDivElement | null>(null);
     const mainContentsRef = useRef<HTMLDivElement | null>(null);
+
+    function handleLinkContact() {
+        contactRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+    function handleLinkProducts() {
+        ProductsRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+    function handleLinkMyself() {
+        myselfRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
 
     useGSAP(
         () => {
@@ -87,7 +103,11 @@ export default function App(): React.ReactElement {
                 </div>
                 <div ref={mainContentsRef}>
                     <div ref={KeyViewRef}>
-                        <KeyView />
+                        <KeyView
+                            handleLinkContact={handleLinkContact}
+                            handleLinkMyself={handleLinkMyself}
+                            handleLinkProducts={handleLinkProducts}
+                        />
                     </div>
                     <FixedBoxScene />
                     <Main
@@ -378,6 +398,7 @@ function FixedBoxScene() {
         if (canvasRef.current) {
             gsap.to(canvasRef.current, {
                 y: "-80%",
+                ease: "none",
                 scrollTrigger: {
                     trigger: "body",
                     start: "top top",

@@ -1,29 +1,47 @@
-import React, { useState, useRef, Fragment, forwardRef } from "react";
+import React, {
+    useState,
+    useRef,
+    Fragment,
+    forwardRef,
+    ReactNode,
+    MouseEventHandler,
+} from "react";
 import { Link, BrowserRouter, Route, Routes } from "react-router-dom";
 import { flushSync } from "react-dom";
 import styled from "styled-components";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
 import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { Contact } from "./Main";
 
+gsap.registerPlugin(ScrollToPlugin);
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 
-export function KeyView(): React.ReactElement {
+interface keyViewProps {
+    handleLinkContact: () => void;
+    handleLinkMyself: () => void;
+    handleLinkProducts: () => void;
+}
+
+export function KeyView({
+    handleLinkContact,
+    handleLinkMyself,
+    handleLinkProducts,
+}: keyViewProps): React.ReactElement {
     const AnchorRef = useRef<(HTMLAnchorElement | null)[]>([]);
+    const ButtonRef = useRef<(HTMLButtonElement | null)[]>([]);
 
     useGSAP(() => {
-        AnchorRef.current
-            .filter((ref) => {
-                return ref !== null;
-            })
-            .map((ref, index) => {
-                gsap.fromTo(
+        const tl = gsap.timeline();
+        if (ButtonRef.current) {
+            ButtonRef.current.map((ref, index) => {
+                tl.fromTo(
                     ref,
                     {
                         x: "-10rem",
@@ -32,12 +50,30 @@ export function KeyView(): React.ReactElement {
                     {
                         x: 0,
                         opacity: 1,
-                        delay: 3.5 + 0.2 * index,
+                        delay: index === 0 ? 4.2 : 0,
                         duration: 1.0,
                         ease: "power3.out",
-                    }
+                    },
+                    "-=0.8"
                 );
             });
+        }
+        if (AnchorRef.current) {
+            tl.fromTo(
+                AnchorRef.current[0],
+                {
+                    x: "-10rem",
+                    opacity: 0,
+                },
+                {
+                    x: 0,
+                    opacity: 1,
+                    duration: 1.0,
+                    ease: "power3.out",
+                },
+                "-=0.8"
+            );
+        }
     }, []);
 
     return (
@@ -46,40 +82,36 @@ export function KeyView(): React.ReactElement {
                 <KeyViewContainer>
                     <ImageDiv></ImageDiv>
                     <ButtonWrapper>
-                        <KeyViewLink
-                            to=""
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        <KeyViewButton
                             ref={(ref) => {
-                                AnchorRef.current[0] = ref;
+                                ButtonRef.current[0] = ref;
                             }}
+                            onClick={handleLinkMyself}
                         >
                             About Aiba
-                        </KeyViewLink>
-                        <KeyViewLink
-                            to=""
-                            target="_blank"
-                            rel="noopener noreferrer"
+                        </KeyViewButton>
+                        <KeyViewButton
                             ref={(ref) => {
-                                AnchorRef.current[1] = ref;
+                                ButtonRef.current[1] = ref;
                             }}
+                            onClick={handleLinkProducts}
                         >
                             Products
-                        </KeyViewLink>
-                        <KeyViewLink
-                            to="/Contact"
+                        </KeyViewButton>
+                        <KeyViewButton
                             ref={(ref) => {
-                                AnchorRef.current[2] = ref;
+                                ButtonRef.current[2] = ref;
                             }}
+                            onClick={handleLinkContact}
                         >
                             Contact
-                        </KeyViewLink>
+                        </KeyViewButton>
                         <KeyViewLink
                             to="https://github.com/wAiba8860"
                             target="_blank"
                             rel="noopener noreferrer"
                             ref={(ref) => {
-                                AnchorRef.current[3] = ref;
+                                AnchorRef.current[0] = ref;
                             }}
                         >
                             To Github
@@ -110,6 +142,14 @@ const KeyViewLink = styled(Link)`
     font-size: 3rem;
     letter-spacing: 0.2rem;
     text-decoration: none;
+    font-weight: bold;
+    margin: 1rem 0;
+`;
+const KeyViewButton = styled.button`
+    display: block;
+    color: #fff;
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
     font-weight: bold;
     margin: 1rem 0;
 `;
