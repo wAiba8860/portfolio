@@ -49,8 +49,9 @@ export function GNewsAPI() {
     const [news, setNews] = useState<GNewsResponse | null>(null);
     const [category, setCategory] = useState<string>("general");
     const [isNews, setIsNews] = useState<boolean>(false);
-    const myAPIkey = "6227e4d938d510f440f9a801d03f5a81";
+    const myAPIkey = process.env.REACT_APP_GNEWS_API_KEY;
     const url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=ja&country=jp&apikey=${myAPIkey}`;
+    console.log(myAPIkey);
 
     const fetchNews = () => {
         if (isNews) {

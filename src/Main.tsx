@@ -4,6 +4,8 @@ import React, {
     Fragment,
     forwardRef,
     RefObject,
+    ChangeEventHandler,
+    ChangeEvent,
 } from "react";
 import { flushSync } from "react-dom";
 import { Link, BrowserRouter } from "react-router-dom";
@@ -168,6 +170,47 @@ function AboutMyself(): React.ReactElement {
 }
 
 export function Contact() {
+    const [lastName, setLastName] = useState<string | null>(null);
+    const [firstName, setFirstName] = useState<string | null>(null);
+    const [lastNameFurigana, setLastNameFurigana] = useState<string | null>(
+        null
+    );
+    const [firstNameFurigana, setFirstNameFurigana] = useState<string | null>(
+        null
+    );
+    const [telephoneNumber, setTelephoneNumber] = useState<number | null>(null);
+    const [email, setEmail] = useState<string | null>(null);
+    const [contactDetail, setContactDetail] = useState<string | null>(null);
+
+    function handleChangeLastName(e: ChangeEvent<HTMLInputElement>) {
+        const lastNameValue = e.target.value;
+        setLastName(lastNameValue);
+    }
+    function handleChangeFirstName(e: ChangeEvent<HTMLInputElement>) {
+        const firstNameValue = e.target.value;
+        setFirstName(firstNameValue);
+    }
+    function handleChangeLastNameFurigana(e: ChangeEvent<HTMLInputElement>) {
+        const lastNameFuriganaValue = e.target.value;
+        setLastNameFurigana(lastNameFuriganaValue);
+    }
+    function handleChangeFirstNameFurigana(e: ChangeEvent<HTMLInputElement>) {
+        const lastNameFuriganaValue = e.target.value;
+        setFirstNameFurigana(lastNameFuriganaValue);
+    }
+    function handleChangeTelephoneNumber(e: ChangeEvent<HTMLInputElement>) {
+        const telephoneNumberValue = e.target.value;
+        setTelephoneNumber(Number(telephoneNumberValue));
+    }
+    function handleChangeEmail(e: ChangeEvent<HTMLInputElement>) {
+        const emailValue = e.target.value;
+        setEmail(emailValue);
+    }
+    function handleChangeContactDetail(e: ChangeEvent<HTMLTextAreaElement>) {
+        const contactDetailValue = e.target.value;
+        setContactDetail(contactDetailValue);
+    }
+
     return (
         <>
             <ContactStyle>
@@ -181,6 +224,8 @@ export function Contact() {
                                     type="text"
                                     name="lastName"
                                     placeholder="例：相場"
+                                    onChange={handleChangeLastName}
+                                    required
                                 />
                             </div>
                             <div>
@@ -189,6 +234,8 @@ export function Contact() {
                                     type="text"
                                     name="firstName"
                                     placeholder="例：太郎"
+                                    onChange={handleChangeFirstName}
+                                    required
                                 />
                             </div>
                         </ContactFlex>
@@ -199,6 +246,8 @@ export function Contact() {
                                     type="text"
                                     name="lastNameFurigana"
                                     placeholder="例：あいば"
+                                    onChange={handleChangeLastNameFurigana}
+                                    required
                                 />
                             </div>
                             <div>
@@ -207,6 +256,8 @@ export function Contact() {
                                     type="text"
                                     name="firstNameFurigana"
                                     placeholder="例：たろう"
+                                    onChange={handleChangeFirstNameFurigana}
+                                    required
                                 />
                             </div>
                         </ContactFlex>
@@ -215,15 +266,21 @@ export function Contact() {
                             type="number"
                             name="telephoneNumber"
                             placeholder="例：090-XXXX-XXXX"
+                            onChange={handleChangeTelephoneNumber}
                         />
                         <InputPStyle>Eメール</InputPStyle>
                         <InputStyle
                             type="email"
                             name="email"
                             placeholder="例：XXXXXXX@gmail.xxx"
+                            onChange={handleChangeEmail}
+                            required
                         />
                         <InputPStyle>お問い合わせ内容</InputPStyle>
-                        <TextareaStyle></TextareaStyle>
+                        <TextareaStyle
+                            onChange={handleChangeContactDetail}
+                            required
+                        ></TextareaStyle>
                         <div style={{ textAlign: "left", marginTop: "3rem" }}>
                             <FormButton type="button">
                                 ご入力内容のご確認
