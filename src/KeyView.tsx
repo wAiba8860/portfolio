@@ -1,12 +1,5 @@
-import React, {
-    useState,
-    useRef,
-    Fragment,
-    forwardRef,
-    ReactNode,
-    MouseEventHandler,
-} from "react";
-import { Link, BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useState, useRef, Fragment, MouseEventHandler } from "react";
+import { Link, BrowserRouter } from "react-router-dom";
 import { flushSync } from "react-dom";
 import styled from "styled-components";
 import { gsap } from "gsap";
@@ -27,12 +20,18 @@ interface keyViewProps {
     handleLinkContact: () => void;
     handleLinkMyself: () => void;
     handleLinkProducts: () => void;
+    handleLinkNews: () => void;
+    isLogin: boolean;
+    handleLogin: MouseEventHandler;
 }
 
 export function KeyView({
     handleLinkContact,
     handleLinkMyself,
     handleLinkProducts,
+    handleLinkNews,
+    isLogin,
+    handleLogin,
 }: keyViewProps): React.ReactElement {
     const AnchorRef = useRef<(HTMLAnchorElement | null)[]>([]);
     const ButtonRef = useRef<(HTMLButtonElement | null)[]>([]);
@@ -80,8 +79,11 @@ export function KeyView({
         <>
             <BrowserRouter>
                 <KeyViewContainer>
-                    <ImageDiv></ImageDiv>
+                    <LoginButton onClick={handleLogin}>
+                        {!isLogin ? "ログイン" : "ログアウト"}
+                    </LoginButton>
                     <ButtonWrapper>
+                        {isLogin && <KeyViewButton>投稿ページへ</KeyViewButton>}
                         <KeyViewButton
                             ref={(ref) => {
                                 ButtonRef.current[0] = ref;
@@ -102,10 +104,19 @@ export function KeyView({
                             ref={(ref) => {
                                 ButtonRef.current[2] = ref;
                             }}
+                            onClick={handleLinkNews}
+                        >
+                            Japanese News
+                        </KeyViewButton>
+                        <KeyViewButton
+                            ref={(ref) => {
+                                ButtonRef.current[3] = ref;
+                            }}
                             onClick={handleLinkContact}
                         >
                             Contact
                         </KeyViewButton>
+
                         <KeyViewLink
                             to="https://github.com/wAiba8860"
                             target="_blank"
@@ -144,6 +155,10 @@ const KeyViewLink = styled(Link)`
     text-decoration: none;
     font-weight: bold;
     margin: 1rem 0;
+    transition: color 0.5s;
+    &:hover {
+        color: rgb(34, 42, 107);
+    }
 `;
 const KeyViewButton = styled.button`
     display: block;
@@ -152,11 +167,24 @@ const KeyViewButton = styled.button`
     letter-spacing: 0.2rem;
     font-weight: bold;
     margin: 1rem 0;
+    transition: color 0.5s;
+    &:hover {
+        color: rgb(34, 42, 107);
+    }
 `;
-const ImageDiv = styled.div`
+const LoginButton = styled.button`
     position: absolute;
-    top: 10px;
-    left: 10px;
+    padding: 10px 20px;
+    top: 0;
+    left: 0;
+    color: #fff;
+    border-radius: 3px;
+    background-color: rgb(34, 42, 107);
+    transition: color 0.3s, background-color 0.3s;
+    &:hover {
+        color: rgb(34, 42, 107);
+        background-color: #fff;
+    }
 `;
 const ButtonWrapper = styled.div`
     position: absolute;

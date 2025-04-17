@@ -18,6 +18,7 @@ import * as THREE from "three";
 import { KeyView } from "./KeyView";
 import { Main } from "./Main";
 import { scrollFixed, loadingTextFadeIn } from "./animation";
+import { PostEditorPage } from "./PostEditorPage";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
@@ -29,7 +30,9 @@ export default function App(): React.ReactElement {
     const myselfRef = useRef<HTMLDivElement | null>(null);
     const ProductsRef = useRef<HTMLDivElement | null>(null);
     const contactRef = useRef<HTMLDivElement | null>(null);
+    const newsRef = useRef<HTMLDivElement | null>(null);
     const mainContentsRef = useRef<HTMLDivElement | null>(null);
+    const [isLogin, setIsLogin] = useState<boolean>(false);
 
     function handleLinkContact() {
         contactRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -39,6 +42,12 @@ export default function App(): React.ReactElement {
     }
     function handleLinkMyself() {
         myselfRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+    function handleLinkNews() {
+        newsRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+    function handleLogin() {
+        setIsLogin(!isLogin);
     }
 
     useGSAP(
@@ -99,6 +108,7 @@ export default function App(): React.ReactElement {
     return (
         <div ref={containerRef}>
             <OverflowWrap>
+                {isLogin && <PostEditorPage isLogin={isLogin} />}
                 <div ref={LoadingScreenRef}>
                     <LoadingAnimate />
                 </div>
@@ -108,6 +118,9 @@ export default function App(): React.ReactElement {
                             handleLinkContact={handleLinkContact}
                             handleLinkMyself={handleLinkMyself}
                             handleLinkProducts={handleLinkProducts}
+                            handleLinkNews={handleLinkNews}
+                            isLogin={isLogin}
+                            handleLogin={handleLogin}
                         />
                     </div>
                     <FixedBoxScene />
@@ -115,6 +128,7 @@ export default function App(): React.ReactElement {
                         myselfRef={myselfRef}
                         ProductsRef={ProductsRef}
                         contactRef={contactRef}
+                        newsRef={newsRef}
                     />
                 </div>
             </OverflowWrap>
@@ -250,14 +264,14 @@ function RotatingBox(): React.ReactElement {
                     .fromTo(
                         mesh!.position,
                         {
-                            x: -window.innerWidth,
+                            x: -window.innerWidth - 200,
                             y: 200 - 200 * index,
                         },
                         {
-                            x: window.innerWidth,
-                            duration: 2.0,
+                            x: window.innerWidth + 200,
+                            duration: 1.5,
                             ease: "power4.out",
-                            delay: 0.5 + 0.5 * index,
+                            delay: 0.4 + 0.5 * index,
                             autoAlpha: 0,
                         }
                     )
@@ -480,7 +494,7 @@ const FadeLight = styled.div`
         top: 50%;
         transform:translateY(-50%);
         left: -30%;
-        width: 20%;
+        width: 30%;
         height: 30%;
         border-radius:50%;
         background-image: linear-gradient(

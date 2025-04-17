@@ -327,21 +327,42 @@ function BannerContents(): React.ReactElement {
                 <FlexTwoColumns>
                     <BannerWrapper>
                         <BannerImg src="./images/banner1.png" alt="bannerOne" />
-                        <h3>量販店向け</h3>
-                        <h3>バレンタインセール告知用バナー</h3>
+                        <BannerTitleWrapper>
+                            <h3>量販店向け</h3>
+                            <h3>バレンタインセール告知用バナー</h3>
+                        </BannerTitleWrapper>
+                        <ProgrammingText>
+                            自然と目を集める赤を基調としたデザイン。
+                            背景が中央に向けて明るくなるグラデーションをつけることにより、
+                            自然と中央のキャンペーンに目が集まり、
+                            黄色のアクセントの50%OFFに視線を集める狙い。
+                        </ProgrammingText>
                     </BannerWrapper>
                     <BannerWrapper>
                         <BannerImg src="./images/banner2.jpg" alt="bannerTwo" />
-                        <h3>中高年代をターゲットにした</h3>
-                        <h3>ペットショップバナー</h3>
+                        <BannerTitleWrapper>
+                            <h3>中高年代をターゲットにした</h3>
+                            <h3>ペットショップバナー</h3>
+                        </BannerTitleWrapper>
+                        <ProgrammingText>
+                            愛くるしい猫の寝顔をセレクト。
+                            背景に丸くマスクをかけて猫の寝顔を強調。
+                            猫の毛色をメインカラーに緑をアクセントに癒しを強調。
+                        </ProgrammingText>
                     </BannerWrapper>
                     <BannerWrapper>
                         <BannerImg
                             src="./images/banner3.png"
                             alt="bannerThree"
                         />
-                        <h3>シューズ専門店向け</h3>
-                        <h3>ランニングシューズ販売促進バナー</h3>
+                        <BannerTitleWrapper>
+                            <h3>シューズ専門店向け</h3>
+                            <h3>ランニングシューズ販売促進バナー</h3>
+                        </BannerTitleWrapper>
+                        <ProgrammingText>
+                            軽さを強調するために全体的に上向きの画像をチョイス。
+                            青空を基調としたカラー配色でリンクの誘導は信頼の紺に近づけた。
+                        </ProgrammingText>
                     </BannerWrapper>
                 </FlexTwoColumns>
                 <FlexTwoColumns>
@@ -350,27 +371,41 @@ function BannerContents(): React.ReactElement {
                             src="./images/banner4.png"
                             alt="bannerFour"
                         />
-                        <h3>ネットショップ向け</h3>
-                        <h3>長財布販売促進バナー</h3>
+                        <BannerTitleWrapper>
+                            <h3>ネットショップ向け</h3>
+                            <h3>長財布販売促進バナー</h3>
+                        </BannerTitleWrapper>
+                        <ProgrammingText>
+                            高級感のこげ茶色と黒で作成。
+                            ロゴも黄色を基調に高級感を出すデザイン。
+                            （商品写真は自分の財布です。）
+                        </ProgrammingText>
                     </BannerWrapper>
-                    <BannerWrapper>
+                    <BannerWrapper360>
                         <BannerImg
-                            style={{ maxWidth: "360px" }}
                             src="./images/banner5.png"
                             alt="bannerFive"
                         />
-                        <h3>新潟県リスキリング事業</h3>
-                        <h3>事業者様向けセミナーバナー</h3>
-                    </BannerWrapper>
-                    <BannerWrapper>
-                        <BannerImg
-                            style={{ maxWidth: "360px" }}
-                            src="./images/banner6.png"
-                            alt="bannerSix"
-                        />
-                        <h3>新潟県リスキリング事業</h3>
-                        <h3>受講資格がある方全般向けバナー</h3>
-                    </BannerWrapper>
+                        <BannerTitleWrapper>
+                            <h3>新潟県リスキリング事業</h3>
+                            <h3>事業者様向けセミナーバナー</h3>
+                        </BannerTitleWrapper>
+                        <ProgrammingText>
+                            背景をオフィスとスーツ姿の笑顔の人物を設定することにより働く人へアピール。
+                            事業者様が頭を悩ませがちな3問題を提起し、解決策を強調。
+                        </ProgrammingText>
+                    </BannerWrapper360>
+                    <BannerWrapper360>
+                        <BannerImg src="./images/banner6.png" alt="bannerSix" />
+                        <BannerTitleWrapper>
+                            <h3>新潟県リスキリング事業</h3>
+                            <h3>受講資格がある方全般向けバナー</h3>
+                        </BannerTitleWrapper>
+                        <ProgrammingText>
+                            新潟のシンボルである万代橋を背景に設定。
+                            老若男女に伝わりやすいよう出来る限りシンプルにまとめた。
+                        </ProgrammingText>
+                    </BannerWrapper360>
                 </FlexTwoColumns>
             </div>
         </BannerContainer>
@@ -445,6 +480,16 @@ const ProgrammingLanguage = styled.p`
     font-size: 1.2rem;
 `;
 const BannerWrapper = styled.div`
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 2rem;
+`;
+const BannerTitleWrapper = styled.div`
+    margin-top: 1rem;
+`;
+const BannerWrapper360 = styled.div`
+    width: 100%;
+    max-width: 360px;
     margin-bottom: 2rem;
 `;
 const BannerImg = styled.img`

@@ -17,6 +17,7 @@
         "@types/react-dom": "^19.0.4",
         "destyle.css": "^4.0.1",
         "gsap": "^3.12.7",
+        "newsapi": "^2.4.1",
         "normalize.css": "^8.0.1",
         "react": "^19.0.0",
         "react-dom": "^19.0.0",

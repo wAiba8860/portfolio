@@ -17,6 +17,7 @@ import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { fadeInVertical, fadeInTextSplit } from "./animation";
 import { Products } from "./Products";
+import { GNewsAPI } from "./JapaneseNews";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
@@ -25,9 +26,15 @@ interface MainProps {
     myselfRef: React.RefObject<HTMLDivElement | null>;
     ProductsRef: React.RefObject<HTMLDivElement | null>;
     contactRef: React.RefObject<HTMLDivElement | null>;
+    newsRef: React.RefObject<HTMLDivElement | null>;
 }
 
-export function Main({ myselfRef, ProductsRef, contactRef }: MainProps) {
+export function Main({
+    myselfRef,
+    ProductsRef,
+    contactRef,
+    newsRef,
+}: MainProps) {
     return (
         <>
             <div ref={myselfRef}>
@@ -35,6 +42,10 @@ export function Main({ myselfRef, ProductsRef, contactRef }: MainProps) {
             </div>
             <div ref={ProductsRef}>
                 <Products />
+            </div>
+            <div ref={newsRef}>
+                <GNewsAPI />
+                {/* <NewsAPI /> */}
             </div>
             <div ref={contactRef}>
                 <Contact />
@@ -291,10 +302,16 @@ const InputPStyle = styled.p`
     font-size: 1.3rem;
 `;
 const FormButton = styled.button`
-    background-color: rgb(149, 154, 192);
+    background-color: rgb(145, 153, 212);
     border-radius: 0.5rem;
     padding: 1rem 2rem;
     font-size: 1.3rem;
+    font-weight: bold;
+    transition: border-radius 0.5s, color 0.5s;
+    &:hover {
+        border-radius: 3rem;
+        color: #fff;
+    }
 `;
 const ContactFlex = styled.div`
     display: grid;
