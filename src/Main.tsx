@@ -20,6 +20,7 @@ import * as THREE from "three";
 import { fadeInVertical, fadeInTextSplit } from "./animation";
 import { Products } from "./Products";
 import { GNewsAPI } from "./JapaneseNews";
+import { ReadBook } from "./ReadBook";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
@@ -49,6 +50,7 @@ export function Main({
                 <GNewsAPI />
                 {/* <NewsAPI /> */}
             </div>
+            <ReadBook />
             <div ref={contactRef}>
                 <Contact />
             </div>

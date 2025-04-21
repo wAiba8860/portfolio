@@ -8,6 +8,7 @@ import React, {
 } from "react";
 import { flushSync } from "react-dom";
 import styled from "styled-components";
+import { Link, BrowserRouter, Routes, Route } from "react-router-dom";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -32,7 +33,6 @@ export default function App(): React.ReactElement {
     const contactRef = useRef<HTMLDivElement | null>(null);
     const newsRef = useRef<HTMLDivElement | null>(null);
     const mainContentsRef = useRef<HTMLDivElement | null>(null);
-    const [isLogin, setIsLogin] = useState<boolean>(false);
 
     function handleLinkContact() {
         contactRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -45,9 +45,6 @@ export default function App(): React.ReactElement {
     }
     function handleLinkNews() {
         newsRef.current?.scrollIntoView({ behavior: "smooth" });
-    }
-    function handleLogin() {
-        setIsLogin(!isLogin);
     }
 
     useGSAP(
@@ -108,7 +105,6 @@ export default function App(): React.ReactElement {
     return (
         <div ref={containerRef}>
             <OverflowWrap>
-                {isLogin && <PostEditorPage isLogin={isLogin} />}
                 <div ref={LoadingScreenRef}>
                     <LoadingAnimate />
                 </div>
@@ -119,8 +115,6 @@ export default function App(): React.ReactElement {
                             handleLinkMyself={handleLinkMyself}
                             handleLinkProducts={handleLinkProducts}
                             handleLinkNews={handleLinkNews}
-                            isLogin={isLogin}
-                            handleLogin={handleLogin}
                         />
                     </div>
                     <FixedBoxScene />

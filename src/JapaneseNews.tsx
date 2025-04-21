@@ -51,7 +51,6 @@ export function GNewsAPI() {
     const [isNews, setIsNews] = useState<boolean>(false);
     const myAPIkey = process.env.REACT_APP_GNEWS_API_KEY;
     const url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=ja&country=jp&apikey=${myAPIkey}`;
-    console.log(myAPIkey);
 
     const fetchNews = () => {
         if (isNews) {
@@ -296,6 +295,9 @@ interface NewsResponse {
 const NewsTitle = styled.h1`
     text-align: center;
     margin: 2rem;
+    background-color: rgb(34, 42, 107);
+    border-radius: 5rem;
+    color: #fff;
 `;
 
 const NewsContainer = styled.div`
@@ -308,12 +310,14 @@ const FlexNews = styled.div`
     padding: 1rem;
     gap: 1rem;
     align-items: center;
+    border-top: 2px solid #ccc;
 `;
 
 const FlexContent = styled.div`
     display: flex;
     align-items: center;
     gap: 1rem;
+    margin-bottom: 1rem;
 `;
 
 const NewsReacquisitionButton = styled.button`
@@ -380,7 +384,7 @@ const NewsAnchor = styled.a`
         left: 0;
         width: 0;
         height: 100%;
-        border-bottom: 3px solid rgb(34, 42, 107);
+        border-bottom: 2px solid rgb(34, 42, 107);
     }
     &:hover {
         &::before {

@@ -63,215 +63,197 @@ export function Products(): React.ReactElement {
 
     return (
         <>
-            <BrowserRouter>
-                <ProductsWrapper>
-                    <ProductsCover>
-                        <ProductsH1Style
+            <ProductsWrapper>
+                <ProductsCover>
+                    <ProductsH1Style
+                        ref={(ref) => {
+                            fadeInVerticalRef.current[0] = ref;
+                        }}
+                    >
+                        制作Webサイト一覧
+                    </ProductsH1Style>
+                    <ProductsTextWrapper>
+                        <ProductContent
                             ref={(ref) => {
-                                fadeInVerticalRef.current[0] = ref;
+                                productContentsRef.current[0] = ref;
                             }}
                         >
-                            制作Webサイト一覧
-                        </ProductsH1Style>
-                        <ProductsTextWrapper>
-                            <ProductContent
-                                ref={(ref) => {
-                                    productContentsRef.current[0] = ref;
-                                }}
-                            >
-                                <h2>
-                                    企業実習期間課題
-                                    <br />
-                                    Webサイト(3作品目)
-                                </h2>
-                                <div style={{ height: "150px" }}>
-                                    <OverViewTextH3>
-                                        【制作期間】
-                                    </OverViewTextH3>
-                                    <OverViewTextP>
-                                        コーディング：5日
-                                    </OverViewTextP>
-                                    <OverViewTextP>
-                                        ワイヤーフレーム等の構想：1日
-                                        （事前にデザイン会社様より構想の例を与えられていたため）
-                                    </OverViewTextP>
-                                </div>
-                                <>
-                                    <LinkImgTag
-                                        src="./images/short_house_movie.jpg"
-                                        alt="houseShortMovie"
-                                    />
-                                    <LinkStyle
-                                        to="https://house-short-movie-p9dm.vercel.app/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        Webサイトへ
-                                    </LinkStyle>
-                                </>
-                                <div>
-                                    <OverViewTextH3>
-                                        【Webサイト概要】
-                                    </OverViewTextH3>
-                                    <OverViewTextP>
-                                        住宅会社や工務店向けの、住宅動画作成会社様のLPサイト
-                                    </OverViewTextP>
-                                    <OverViewTextP>
-                                        Instagramからのリンクからアクセスして来られるお客様を想定しているため、
-                                        スマホファースト仕様
-                                    </OverViewTextP>
-                                </div>
+                            <h2>
+                                企業実習期間課題
+                                <br />
+                                Webサイト(3作品目)
+                            </h2>
+                            <div style={{ height: "150px" }}>
+                                <OverViewTextH3>【制作期間】</OverViewTextH3>
+                                <OverViewTextP>コーディング：5日</OverViewTextP>
+                                <OverViewTextP>
+                                    ワイヤーフレーム等の構想：1日
+                                    （事前にデザイン会社様より構想の例を与えられていたため）
+                                </OverViewTextP>
+                            </div>
+                            <>
+                                <LinkImgTag
+                                    src="./images/short_house_movie.jpg"
+                                    alt="houseShortMovie"
+                                />
+                                <LinkStyle
+                                    to="https://house-short-movie-p9dm.vercel.app/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Webサイトへ
+                                </LinkStyle>
+                            </>
+                            <div>
+                                <OverViewTextH3>
+                                    【Webサイト概要】
+                                </OverViewTextH3>
+                                <OverViewTextP>
+                                    住宅会社や工務店向けの、住宅動画作成会社様のLPサイト
+                                </OverViewTextP>
+                                <OverViewTextP>
+                                    Instagramからのリンクからアクセスして来られるお客様を想定しているため、
+                                    スマホファースト仕様
+                                </OverViewTextP>
+                            </div>
 
-                                <ProgrammingText>
-                                    <ProgrammingLanguage>
-                                        使用言語
-                                    </ProgrammingLanguage>
-                                    <ul>
-                                        <LiStyle>React</LiStyle>
-                                        <LiStyle>Typescript</LiStyle>
-                                    </ul>
-                                    <ProgrammingLanguage
-                                        style={{ marginTop: "1rem" }}
-                                    >
-                                        使用スタイルcss
-                                    </ProgrammingLanguage>
-                                    <ul>
-                                        <LiStyle>styled-components</LiStyle>
-                                    </ul>
-                                </ProgrammingText>
-                            </ProductContent>
-                            <ProductContent
-                                ref={(ref) => {
-                                    productContentsRef.current[1] = ref;
-                                }}
-                            >
-                                <h2>
-                                    卒業制作課題
+                            <ProgrammingText>
+                                <ProgrammingLanguage>
+                                    使用言語
+                                </ProgrammingLanguage>
+                                <ul>
+                                    <LiStyle>React</LiStyle>
+                                    <LiStyle>Typescript</LiStyle>
+                                </ul>
+                                <ProgrammingLanguage
+                                    style={{ marginTop: "1rem" }}
+                                >
+                                    使用スタイルcss
+                                </ProgrammingLanguage>
+                                <ul>
+                                    <LiStyle>styled-components</LiStyle>
+                                </ul>
+                            </ProgrammingText>
+                        </ProductContent>
+                        <ProductContent
+                            ref={(ref) => {
+                                productContentsRef.current[1] = ref;
+                            }}
+                        >
+                            <h2>
+                                卒業制作課題
+                                <br />
+                                Webサイト(2作品目)
+                            </h2>
+                            <div style={{ height: "150px" }}>
+                                <OverViewTextH3>【制作期間】</OverViewTextH3>
+                                <OverViewTextP>コーディング：6日</OverViewTextP>
+                                <OverViewTextP>
+                                    ワイヤーフレーム等の構想：1日
                                     <br />
-                                    Webサイト(2作品目)
-                                </h2>
-                                <div style={{ height: "150px" }}>
-                                    <OverViewTextH3>
-                                        【制作期間】
-                                    </OverViewTextH3>
-                                    <OverViewTextP>
-                                        コーディング：6日
-                                    </OverViewTextP>
-                                    <OverViewTextP>
-                                        ワイヤーフレーム等の構想：1日
-                                        <br />
-                                        バナー、キャラクター作成：2日
-                                    </OverViewTextP>
-                                </div>
-                                <>
-                                    <LinkImgTag
-                                        src="./images/bread-shop.jpg"
-                                        alt="houseShortMovie"
-                                    />
-                                    <LinkStyle
-                                        to="https://waiba8860.github.io/bread_shop_assignment/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        Webサイトへ
-                                    </LinkStyle>
-                                </>
-                                <div>
-                                    <OverViewTextH3>
-                                        Webサイト概要
-                                    </OverViewTextH3>
-                                    <OverViewTextP>
-                                        既存のパン屋のリニューアル案としてのWebサイト
-                                    </OverViewTextP>
-                                    <OverViewTextP>
-                                        どうすればWebページの下部までブラウザバッグせずにスクロールしてもらえるか
-                                        流れを意識
-                                    </OverViewTextP>
-                                </div>
-                                <ProgrammingText>
-                                    <ProgrammingLanguage>
-                                        使用言語
-                                    </ProgrammingLanguage>
-                                    <ul>
-                                        <LiStyle>HTML & CSS</LiStyle>
-                                        <LiStyle>Javascript</LiStyle>
-                                    </ul>
-                                    <ProgrammingLanguage
-                                        style={{ marginTop: "1rem" }}
-                                    >
-                                        バナー作成、マスコットキャラ作成
-                                    </ProgrammingLanguage>
-                                    <ul>
-                                        <LiStyle>Illustrator</LiStyle>
-                                        <LiStyle>Photoshop</LiStyle>
-                                    </ul>
-                                </ProgrammingText>
-                            </ProductContent>
-                            <ProductContent
-                                ref={(ref) => {
-                                    productContentsRef.current[2] = ref;
-                                }}
-                            >
-                                <h2>
-                                    企業実習前課題制作
+                                    バナー、キャラクター作成：2日
+                                </OverViewTextP>
+                            </div>
+                            <>
+                                <LinkImgTag
+                                    src="./images/bread-shop.jpg"
+                                    alt="houseShortMovie"
+                                />
+                                <LinkStyle
+                                    to="https://waiba8860.github.io/bread_shop_assignment/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Webサイトへ
+                                </LinkStyle>
+                            </>
+                            <div>
+                                <OverViewTextH3>Webサイト概要</OverViewTextH3>
+                                <OverViewTextP>
+                                    既存のパン屋のリニューアル案としてのWebサイト
+                                </OverViewTextP>
+                                <OverViewTextP>
+                                    どうすればWebページの下部までブラウザバッグせずにスクロールしてもらえるか
+                                    流れを意識
+                                </OverViewTextP>
+                            </div>
+                            <ProgrammingText>
+                                <ProgrammingLanguage>
+                                    使用言語
+                                </ProgrammingLanguage>
+                                <ul>
+                                    <LiStyle>HTML & CSS</LiStyle>
+                                    <LiStyle>Javascript</LiStyle>
+                                </ul>
+                                <ProgrammingLanguage
+                                    style={{ marginTop: "1rem" }}
+                                >
+                                    バナー作成、マスコットキャラ作成
+                                </ProgrammingLanguage>
+                                <ul>
+                                    <LiStyle>Illustrator</LiStyle>
+                                    <LiStyle>Photoshop</LiStyle>
+                                </ul>
+                            </ProgrammingText>
+                        </ProductContent>
+                        <ProductContent
+                            ref={(ref) => {
+                                productContentsRef.current[2] = ref;
+                            }}
+                        >
+                            <h2>
+                                企業実習前課題制作
+                                <br />
+                                Webサイト(1作品目)
+                            </h2>
+                            <div style={{ height: "150px" }}>
+                                <OverViewTextH3>【制作期間】</OverViewTextH3>
+                                <OverViewTextP>
+                                    コーディング：10日
+                                </OverViewTextP>
+                                <OverViewTextP>
+                                    ワイヤーフレーム等の構想：トレースのためほぼ無し
                                     <br />
-                                    Webサイト(1作品目)
-                                </h2>
-                                <div style={{ height: "150px" }}>
-                                    <OverViewTextH3>
-                                        【制作期間】
-                                    </OverViewTextH3>
-                                    <OverViewTextP>
-                                        コーディング：10日
-                                    </OverViewTextP>
-                                    <OverViewTextP>
-                                        ワイヤーフレーム等の構想：トレースのためほぼ無し
-                                        <br />
-                                        素材作成：1日
-                                    </OverViewTextP>
-                                </div>
-                                <>
-                                    <LinkImgTag
-                                        src="./images/album-design.jpg"
-                                        alt="houseShortMovie"
-                                    />
-                                    <LinkStyle
-                                        to="https://waiba8860.github.io/Album_design/"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        Webサイトへ
-                                    </LinkStyle>
-                                </>
-                                <div>
-                                    <OverViewTextH3>
-                                        Webサイト概要
-                                    </OverViewTextH3>
-                                    <OverViewTextP>
-                                        アルバムデジタル化サービスを手がけるサイト様のトレースWebサイト
-                                    </OverViewTextP>
-                                    <OverViewTextP>
-                                        初めてのWebサイト制作だったため動きがかなり少ないが
-                                        空白の取り方等、勉強になったWebサイト
-                                    </OverViewTextP>
-                                </div>
-                                <ProgrammingText>
-                                    <ProgrammingLanguage>
-                                        使用言語
-                                    </ProgrammingLanguage>
-                                    <ul>
-                                        <LiStyle>HTML & CSS</LiStyle>
-                                        <LiStyle>
-                                            Javascript (little...)
-                                        </LiStyle>
-                                    </ul>
-                                </ProgrammingText>
-                            </ProductContent>
-                        </ProductsTextWrapper>
-                        <BannerContents />
-                    </ProductsCover>
-                </ProductsWrapper>
-            </BrowserRouter>
+                                    素材作成：1日
+                                </OverViewTextP>
+                            </div>
+                            <>
+                                <LinkImgTag
+                                    src="./images/album-design.jpg"
+                                    alt="houseShortMovie"
+                                />
+                                <LinkStyle
+                                    to="https://waiba8860.github.io/Album_design/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Webサイトへ
+                                </LinkStyle>
+                            </>
+                            <div>
+                                <OverViewTextH3>Webサイト概要</OverViewTextH3>
+                                <OverViewTextP>
+                                    アルバムデジタル化サービスを手がけるサイト様のトレースWebサイト
+                                </OverViewTextP>
+                                <OverViewTextP>
+                                    初めてのWebサイト制作だったため動きがかなり少ないが
+                                    空白の取り方等、勉強になったWebサイト
+                                </OverViewTextP>
+                            </div>
+                            <ProgrammingText>
+                                <ProgrammingLanguage>
+                                    使用言語
+                                </ProgrammingLanguage>
+                                <ul>
+                                    <LiStyle>HTML & CSS</LiStyle>
+                                    <LiStyle>Javascript (little...)</LiStyle>
+                                </ul>
+                            </ProgrammingText>
+                        </ProductContent>
+                    </ProductsTextWrapper>
+                    <BannerContents />
+                </ProductsCover>
+            </ProductsWrapper>
         </>
     );
 }

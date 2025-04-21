@@ -4,9 +4,11 @@ import React, {
     Fragment,
     forwardRef,
     RefObject,
+    ChangeEventHandler,
+    ChangeEvent,
 } from "react";
 import { flushSync } from "react-dom";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { Link, BrowserRouter } from "react-router-dom";
 import styled from "styled-components";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -17,20 +19,11 @@ import { useGLTF } from "@react-three/drei";
 import * as THREE from "three";
 import { fadeInVertical, fadeInTextSplit } from "./animation";
 import { Products } from "./Products";
+import { GNewsAPI } from "./JapaneseNews";
 
 gsap.registerPlugin(ScrollTrigger);
 gsap.registerPlugin(useGSAP);
 
-export function PostEditorPage() {
-    const [textEdit, SetTextEdit] = useState(null);
-
-    return (
-        <>
-            <h3>※投稿ページは準備中です</h3>
-            <h3>投稿のタイトル：</h3>
-            <input type="text" name="title" id="title" />
-            <h3>投稿内容：</h3>
-            <textarea name="PostContent" id="PostContent"></textarea>
-        </>
-    );
+export function ReadBook() {
+    return <></>;
 }
