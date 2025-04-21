@@ -155,13 +155,13 @@ export function KeyView({
                             <p>ユーザーID</p>
                             <LoginInput
                                 type="text"
-                                placeholder="taro"
+                                placeholder="taro or hanako"
                                 onChange={handleChangeUserName}
                             />
                             <p>パスワード</p>
                             <LoginInput
                                 type="password"
-                                placeholder="testTaro"
+                                placeholder="testTaro or testHanako"
                                 onChange={handleChangePassword}
                             />
                             {loginError}
