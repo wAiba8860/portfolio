@@ -72,6 +72,24 @@ export function fadeInVertical<T extends HTMLElement>(ref: T | null) {
     );
 }
 
+//右方向からのフェードイン
+
+export function fadeInRight<T extends HTMLElement>(ref: T | null) {
+    return gsap.fromTo(
+        ref,
+        {
+            opacity: 0,
+            x: "10rem",
+        },
+        {
+            opacity: 1,
+            x: 0,
+            duration: 2.0,
+            ease: "power4.out",
+        }
+    );
+}
+
 //テキストが一文字ずつフェードイン
 
 export function fadeInTextSplit(

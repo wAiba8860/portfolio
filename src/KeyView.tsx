@@ -29,6 +29,7 @@ interface keyViewProps {
     handleLinkMyself: () => void;
     handleLinkProducts: () => void;
     handleLinkNews: () => void;
+    handleLinkBook: () => void;
 }
 
 interface user {
@@ -46,6 +47,7 @@ export function KeyView({
     handleLinkMyself,
     handleLinkProducts,
     handleLinkNews,
+    handleLinkBook,
 }: keyViewProps): React.ReactElement {
     const AnchorRef = useRef<(HTMLAnchorElement | null)[]>([]);
     const ButtonRef = useRef<(HTMLButtonElement | null)[]>([]);
@@ -121,7 +123,7 @@ export function KeyView({
                         duration: 1.0,
                         ease: "power3.out",
                     },
-                    "-=0.8"
+                    "-=0.9"
                 );
             });
         }
@@ -138,7 +140,7 @@ export function KeyView({
                     duration: 1.0,
                     ease: "power3.out",
                 },
-                "-=0.8"
+                "-=0.9"
             );
         }
     }, []);
@@ -199,13 +201,22 @@ export function KeyView({
                         ref={(ref) => {
                             ButtonRef.current[2] = ref;
                         }}
-                        onClick={handleLinkNews}
+                        onClick={handleLinkBook}
                     >
-                        Japanese News
+                        Read Book
                     </KeyViewButton>
                     <KeyViewButton
                         ref={(ref) => {
                             ButtonRef.current[3] = ref;
+                        }}
+                        onClick={handleLinkNews}
+                    >
+                        Japanese News
+                    </KeyViewButton>
+
+                    <KeyViewButton
+                        ref={(ref) => {
+                            ButtonRef.current[4] = ref;
                         }}
                         onClick={handleLinkContact}
                     >

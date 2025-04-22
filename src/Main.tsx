@@ -30,6 +30,7 @@ interface MainProps {
     ProductsRef: React.RefObject<HTMLDivElement | null>;
     contactRef: React.RefObject<HTMLDivElement | null>;
     newsRef: React.RefObject<HTMLDivElement | null>;
+    bookRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export function Main({
@@ -37,6 +38,7 @@ export function Main({
     ProductsRef,
     contactRef,
     newsRef,
+    bookRef,
 }: MainProps) {
     return (
         <>
@@ -46,11 +48,13 @@ export function Main({
             <div ref={ProductsRef}>
                 <Products />
             </div>
+            <div ref={bookRef}>
+                <ReadBook />
+            </div>
             <div ref={newsRef}>
                 <GNewsAPI />
                 {/* <NewsAPI /> */}
             </div>
-            <ReadBook />
             <div ref={contactRef}>
                 <Contact />
             </div>
@@ -122,8 +126,8 @@ function AboutMyself(): React.ReactElement {
         tl.add(fadeInTextSplit(aboutMeText3Ref), "-=0.7");
         tl.add(fadeInTextSplit(aboutMeText4Ref), "-=0.7");
         tl.add(fadeInTextSplit(aboutMeText5Ref), "-=0.5");
-        tl.add(fadeInTextSplit(aboutMeText6Ref), "-=0.9");
-        tl.add(fadeInTextSplit(aboutMeText7Ref), "-=0.7");
+        tl.add(fadeInTextSplit(aboutMeText6Ref), "-=0.8");
+        tl.add(fadeInTextSplit(aboutMeText7Ref), "-=0.6");
         tl.add(fadeInTextSplit(aboutMeText8Ref), "-=0.8");
     }, []);
 

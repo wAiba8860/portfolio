@@ -414,6 +414,9 @@ const ProductContent = styled.div`
     width: 80%;
     margin: 0 auto;
     padding-bottom: 2rem;
+    @media (max-width: 768px) {
+        width: 60%;
+    }
 `;
 const ProductsH1Style = styled.h1`
     font-size: 2.5rem;
@@ -422,6 +425,9 @@ const ProductsH1Style = styled.h1`
 const ProductsTextWrapper = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    @media (max-width: 768px) {
+        display: block;
+    }
 `;
 const OverViewTextH3 = styled.h3`
     margin: 1rem 0;
@@ -465,6 +471,10 @@ const BannerWrapper = styled.div`
     width: 100%;
     max-width: 300px;
     margin-bottom: 2rem;
+    @media (max-width: 768px) {
+        width: 80%;
+        margin: 0 auto 2rem;
+    }
 `;
 const BannerTitleWrapper = styled.div`
     margin-top: 1rem;
@@ -473,6 +483,10 @@ const BannerWrapper360 = styled.div`
     width: 100%;
     max-width: 360px;
     margin-bottom: 2rem;
+    @media (max-width: 768px) {
+        width: 80%;
+        margin: 0 auto 2rem;
+    }
 `;
 const BannerImg = styled.img`
     width: 100%;
@@ -482,4 +496,7 @@ const FlexTwoColumns = styled.div`
     justify-content: center;
     vertical-align: top;
     gap: 2rem;
+    @media (max-width: 768px) {
+        display: block;
+    }
 `;

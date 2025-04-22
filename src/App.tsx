@@ -32,6 +32,7 @@ export default function App(): React.ReactElement {
     const ProductsRef = useRef<HTMLDivElement | null>(null);
     const contactRef = useRef<HTMLDivElement | null>(null);
     const newsRef = useRef<HTMLDivElement | null>(null);
+    const bookRef = useRef<HTMLDivElement | null>(null);
     const mainContentsRef = useRef<HTMLDivElement | null>(null);
 
     function handleLinkContact() {
@@ -45,6 +46,9 @@ export default function App(): React.ReactElement {
     }
     function handleLinkNews() {
         newsRef.current?.scrollIntoView({ behavior: "smooth" });
+    }
+    function handleLinkBook() {
+        bookRef.current?.scrollIntoView({ behavior: "smooth" });
     }
 
     useGSAP(
@@ -115,6 +119,7 @@ export default function App(): React.ReactElement {
                             handleLinkMyself={handleLinkMyself}
                             handleLinkProducts={handleLinkProducts}
                             handleLinkNews={handleLinkNews}
+                            handleLinkBook={handleLinkBook}
                         />
                     </div>
                     <FixedBoxScene />
@@ -123,6 +128,7 @@ export default function App(): React.ReactElement {
                         ProductsRef={ProductsRef}
                         contactRef={contactRef}
                         newsRef={newsRef}
+                        bookRef={bookRef}
                     />
                 </div>
             </OverflowWrap>

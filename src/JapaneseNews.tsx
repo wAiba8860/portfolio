@@ -311,6 +311,9 @@ const FlexNews = styled.div`
     gap: 1rem;
     align-items: center;
     border-top: 2px solid #ccc;
+    @media (max-width: 768px) {
+        display: block;
+    }
 `;
 
 const FlexContent = styled.div`
@@ -362,7 +365,7 @@ const SelectWrapper = styled.div`
     }
 `;
 const SelectNews = styled.select`
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 2rem;
     border: 2px solid rgb(34, 42, 107);
     background-color: #fff;
     border-radius: 0.5rem;
@@ -375,7 +378,7 @@ const NewsAnchor = styled.a`
     overflow: hidden;
     text-decoration: none;
     font-weight: bold;
-    color: rgb(34, 42, 107);
+    color: rgb(17, 42, 233);
 
     &::before {
         position: absolute;
@@ -384,7 +387,7 @@ const NewsAnchor = styled.a`
         left: 0;
         width: 0;
         height: 100%;
-        border-bottom: 2px solid rgb(34, 42, 107);
+        border-bottom: 2px solid rgb(17, 42, 233);
     }
     &:hover {
         &::before {
