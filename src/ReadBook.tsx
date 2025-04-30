@@ -87,7 +87,8 @@ export function ReadBook() {
                                 <h3>独習PHP第4版（現在購読中）</h3>
                                 <CompanyName>翔泳社</CompanyName>
                                 <BookImpression>
-                                    動的なWebサービスを構築したく改めてPHPを勉強するために購入。独習シリーズは安心感があります。
+                                    動的なWebサービスを構築したいと考えたことと、資格勉強のために購入。
+                                    独習シリーズは安心感があります。
                                 </BookImpression>
                             </div>
                         </FlexBoxBook>
